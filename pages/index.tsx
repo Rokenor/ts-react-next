@@ -1,19 +1,12 @@
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { reducer } from "../reducer";
+import { ConnectedTasksList } from "../components/TasksList";
 
-import React from 'react';
-import { NextPage } from 'next';
+const store = createStore(reducer);
 
-interface InitialProps {
-  greeting: string;
-}
-
-interface Props extends InitialProps {}
-
-const IndexPage: NextPage<Props, InitialProps> = props => {
-  return <div>{props.greeting}</div>;
-};
-
-IndexPage.getInitialProps = async () => ({
-  greeting: 'Hello World!'
-});
-
-export default IndexPage;
+export default () => (
+  <Provider store={store}>
+    <ConnectedTasksList />
+  </Provider>
+);
