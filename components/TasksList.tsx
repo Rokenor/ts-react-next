@@ -43,5 +43,5 @@ export const ConnectedTasksList = connect<
 >(state => ({
   tasks: state.tasks
 }), dispatch => ({
-  fetchTasks: () => dispatch(fetchTasks())
+  fetchTasks: () => dispatch(fetchTasks() )
 }))(TasksList);
